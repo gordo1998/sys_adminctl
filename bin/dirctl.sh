@@ -44,6 +44,7 @@ case "$COMMAND" in
 		#FUNCION ARCHIVO IMPORT
 		;;
 	dimport)
+		shift
 		ddi_import_dir "dir" "$@"
 		#FUNCION ARCHIVO DIMPORT
 		;;
