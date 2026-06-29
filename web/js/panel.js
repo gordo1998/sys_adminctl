@@ -56,6 +56,12 @@ function setBadge(type, text, isErr) {
     badge.className = `slot-badge${isErr ? " err" : ""}`;
 }
 
+function getEffectiveType(type) {
+    if (type !== "permission") return type;
+    const sel = document.getElementById("select-permission-type");
+    return `permission-${sel ? sel.value : "acl"}`;
+}
+
 async function handleFile(event, type) {
     const file = event.target.files[0];
     if (!file) return;
@@ -83,9 +89,10 @@ async function handleFile(event, type) {
             return;
         }
 
-        const preview = await previewFile(file, type);
+        const effectiveType = getEffectiveType(type);
+        const preview = await previewFile(file, effectiveType);
         setSlotOk(type, file.name, parsed.length);
-        state[type] = { file, items: parsed, preview: preview.data, error: null };
+        state[type] = { file, items: parsed, preview: preview.data, error: null, effectiveType };
     } catch (e) {
         setSlotError(type, file.name, e.message);
         state[type] = { file, items: null, error: e.message };
@@ -161,10 +168,10 @@ async function handleApply() {
     log.style.display = "flex";
 
     for (const type of valid) {
-        const { file } = state[type];
+        const { file, effectiveType } = state[type];
         logLine(log, `Importando ${LABELS[type]}...`, "info");
         try {
-            await importFile(file, type);
+            await importFile(file, effectiveType || type);
             logLine(log, `${LABELS[type]} importados correctamente.`, "success");
         } catch (e) {
             logLine(log, `Error en ${LABELS[type]}: ${e.message}`, "error");

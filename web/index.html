@@ -72,6 +72,12 @@
                         <div class="slot-label">Permisos</div>
                         <div class="slot-sub" id="sub-permission">CSV, JSON o XML</div>
                     </div>
+                    <select id="select-permission-type" aria-label="Tipo de permiso">
+                        <option value="acl">ACL</option>
+                        <option value="basic">Básico</option>
+                        <option value="owner">Propietario</option>
+                        <option value="group">Grupo</option>
+                    </select>
                     <input type="file" id="input-permission" accept=".csv,.json,.xml" aria-label="Subir archivo de permisos">
                 </div>
                 <div class="format-hint">[ {dir, permiso} ]</div>
