@@ -1,14 +1,12 @@
 #!/bin/bash
 
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../lib"  && pwd)"
+_UC_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/user/validation.sh"
-source "$LIB_DIR/user/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_UC_LIB/mode/lib_mode_det_mode.sh"
+source "$_UC_LIB/user/validation.sh"
+source "$_UC_LIB/user/execution.sh"
+source "$_UC_LIB/log/log.sh"
 
 
 #ESTA FUNCIÓN VALIDARÁ EL PARÁMETRO

@@ -1,9 +1,7 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../../.." && pwd)/lib"
-
-source "$LIB_DIR/error/error.sh"
+_JPERM_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)/lib"
+source "$_JPERM_LIB/error/error.sh"
 
 json_permission_acl_parser(){
     local file="$1"

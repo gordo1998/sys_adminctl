@@ -1,9 +1,7 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-
-source "$LIB_DIR/error/error.sh"
+_DVAL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$_DVAL_DIR/../error/error.sh"
 
 validate_dir_format(){
     local dir="$1"

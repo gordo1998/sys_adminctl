@@ -1,9 +1,9 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../config" && pwd)"
+_MODE_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_MODE_CONFIG_DIR="$(cd "$_MODE_SCRIPT_DIR/../../config" && pwd)"
 
-source "$LIB_DIR/config.conf"
+source "$_MODE_CONFIG_DIR/config.conf"
 
 lm_det_mode(){
 	case "$MODE" in

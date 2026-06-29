@@ -1,9 +1,7 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-
-source "$LIB_DIR/error/error.sh"
+_GVAL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$_GVAL_DIR/../error/error.sh"
 
 validate_group_format(){
     local group="$1"

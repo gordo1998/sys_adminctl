@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../lib" && pwd)"
+_PVAL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_PVAL_LIB="$(cd "$_PVAL_DIR/../../lib" && pwd)"
 
-source "$LIB_DIR/error/error.sh"
-source "$LIB_DIR/dir/validation.sh"
-source "$LIB_DIR/user/validation.sh"
-source "$LIB_DIR/group/validation.sh"
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
+source "$_PVAL_LIB/error/error.sh"
+source "$_PVAL_LIB/dir/validation.sh"
+source "$_PVAL_LIB/user/validation.sh"
+source "$_PVAL_LIB/group/validation.sh"
+source "$_PVAL_LIB/mode/lib_mode_det_mode.sh"
 
 acl_validation_perm(){
     local permiso="$1"

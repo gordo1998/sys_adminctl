@@ -1,11 +1,10 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../lib" && pwd)"
+_PD_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/permission/validation.sh"
-source "$LIB_DIR/permission/delete.sh"
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
+source "$_PD_LIB/permission/validation.sh"
+source "$_PD_LIB/permission/delete.sh"
+source "$_PD_LIB/mode/lib_mode_det_mode.sh"
 
 dir_perm_delete(){
     local dir complete_dir root_dir permiso

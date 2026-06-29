@@ -1,11 +1,10 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../lib" && pwd)"
+_GC_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/group/validation.sh"
-source "$LIB_DIR/group/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_GC_LIB/group/validation.sh"
+source "$_GC_LIB/group/execution.sh"
+source "$_GC_LIB/log/log.sh"
 
 gc_create_group(){
     local group="$1"

@@ -1,10 +1,9 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/../../lib" && pwd)"
+_GD_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/group/validation.sh"
-source "$LIB_DIR/group/delete.sh"
+source "$_GD_LIB/group/validation.sh"
+source "$_GD_LIB/group/delete.sh"
 
 gd_delete_group(){
     local group="$1"

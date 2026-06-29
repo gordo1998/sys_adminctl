@@ -1,9 +1,7 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-
-source "$LIB_DIR/error/error.sh"
+_SVAL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$_SVAL_DIR/../error/error.sh"
 
 validate_service_format(){
     local service="$1"

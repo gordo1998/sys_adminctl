@@ -3,8 +3,7 @@
 #Funcion que tenga un archivo y dependiendo de la extensión deribea un f
 #VARIABLE
 
-DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$DIR_SOURCE/../.." && pwd)"
+_DEXT_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 
 
@@ -32,7 +31,7 @@ importOrdimport_csv(){
 	local file="$3"
 	case "$entity" in
 		user)
-			source "$LIB_DIR/parser/parser_extensions/csv/user.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/user.sh"
 
 			case "$command" in
 				import)
@@ -44,7 +43,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		group)
-			source "$LIB_DIR/parser/parser_extensions/csv/group.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/group.sh"
 
 			case "$command" in
 				import)
@@ -56,7 +55,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		dir)
-			source "$LIB_DIR/parser/parser_extensions/csv/dir.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/dir.sh"
 
 			case "$command" in
 				import)
@@ -68,7 +67,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		permission-acl)
-			source "$LIB_DIR/parser/parser_extensions/csv/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/permission.sh"
 			case "$command" in
 				import)
 					csv_permission_acl_parser "$file"
@@ -79,7 +78,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		permission-basic)
-			source "$LIB_DIR/parser/parser_extensions/csv/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/permission.sh"
 			case "$command" in
 				import)
 					csv_permission_basic_parser "$file"
@@ -90,7 +89,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		permission-owner)
-			source "$LIB_DIR/parser/parser_extensions/csv/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/permission.sh"
 			case "$command" in
 				import)
 					csv_permission_owner_parser "$file"
@@ -98,7 +97,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		permission-group)
-			source "$LIB_DIR/parser/parser_extensions/csv/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/permission.sh"
 			case "$command" in
 				import)
 					csv_permission_group_parser "$file"
@@ -106,7 +105,7 @@ importOrdimport_csv(){
 			esac
 			;;
 		service)
-			source "$LIB_DIR/parser/parser_extensions/csv/service.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/csv/service.sh"
 
 			case "$command" in
 				import)
@@ -126,7 +125,7 @@ importOrdimport_json(){
 	local file="$3"
 	case "$entity" in
 		user)
-			source "$LIB_DIR/parser/parser_extensions/json/user.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/user.sh"
 
 			case "$command" in
 				import)
@@ -138,7 +137,7 @@ importOrdimport_json(){
 			esac
 			;;
 		group)
-			source "$LIB_DIR/parser/parser_extensions/json/group.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/group.sh"
 
 			case "$command" in
 				import)
@@ -150,7 +149,7 @@ importOrdimport_json(){
 			esac
 			;;
 		dir)
-			source "$LIB_DIR/parser/parser_extensions/json/dir.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/dir.sh"
 
 			case "$command" in
 				import)
@@ -162,7 +161,7 @@ importOrdimport_json(){
 			esac
 			;;
 		permission-acl)
-			source "$LIB_DIR/parser/parser_extensions/json/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/permission.sh"
 			case "$command" in
 				import)
 					json_permission_acl_parser "$file"
@@ -173,7 +172,7 @@ importOrdimport_json(){
 			esac
 			;;
 		permission-basic)
-			source "$LIB_DIR/parser/parser_extensions/json/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/permission.sh"
 			case "$command" in
 				import)
 					json_permission_basic_parser "$file"
@@ -184,7 +183,7 @@ importOrdimport_json(){
 			esac
 			;;
 		permission-owner)
-			source "$LIB_DIR/parser/parser_extensions/json/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/permission.sh"
 			case "$command" in
 				import)
 					json_permission_owner_parser "$file"
@@ -192,7 +191,7 @@ importOrdimport_json(){
 			esac
 			;;
 		permission-group)
-			source "$LIB_DIR/parser/parser_extensions/json/permission.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/permission.sh"
 			case "$command" in
 				import)
 					json_permission_group_parser "$file"
@@ -200,7 +199,7 @@ importOrdimport_json(){
 			esac
 			;;
 		service)
-			source "$LIB_DIR/parser/parser_extensions/json/service.sh"
+			source "$_DEXT_LIB/parser/parser_extensions/json/service.sh"
 
 			case "$command" in
 				import)
