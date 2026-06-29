@@ -8,7 +8,7 @@ source "$_RB_LIB/mode/lib_mode_det_mode.sh"
 source "$_RB_LIB/user/delete.sh"
 source "$_RB_LIB/dir/delete.sh"
 source "$_RB_LIB/group/delete.sh"
-source "$LIB_DIR/service/execution.sh"
+source "$_RB_LIB/service/execution.sh"
 
 rb_rollback(){
     [[ ! -f "$LOG_FILE" || ! -s "$LOG_FILE" ]] && echo "No hay nada que revertir." && return 0

@@ -5,7 +5,7 @@ _DC_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 source "$_DC_LIB/mode/lib_mode_det_mode.sh"
 source "$_DC_LIB/dir/validation.sh"
 source "$_DC_LIB/dir/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_DC_LIB/log/log.sh"
 
 dc_create_dir(){
     local dir="$1"

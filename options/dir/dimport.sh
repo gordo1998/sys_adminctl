@@ -2,6 +2,7 @@
 
 _DDI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
+source "$_DDI_LIB/parser/detect_extensions/detect_extensions.sh"
 source "$_DDI_LIB/mode/lib_mode_det_mode.sh"
 source "$_DDI_LIB/dir/validation.sh"
 source "$_DDI_LIB/dir/delete.sh"
