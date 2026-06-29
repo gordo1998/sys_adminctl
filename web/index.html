@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminctl — panel de control</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="app">
+
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"><i class="ti ti-terminal-2" aria-hidden="true"></i></div>
+            <div>
+                <div class="logo-text">adminctl</div>
+                <div class="logo-sub">panel de control</div>
+            </div>
+        </div>
+        <div class="status-pill">
+            <span class="dot"></span>
+            <span id="status-count">Conectando...</span>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <div class="panel">
+            <div class="panel-title">archivos de entrada</div>
+
+            <div class="slot-wrapper">
+                <div class="slot" id="slot-user">
+                    <i class="ti ti-user slot-icon" aria-hidden="true"></i>
+                    <div class="slot-info">
+                        <div class="slot-label">Usuarios</div>
+                        <div class="slot-sub" id="sub-user">CSV, JSON o XML</div>
+                    </div>
+                    <input type="file" id="input-user" accept=".csv,.json,.xml" aria-label="Subir archivo de usuarios">
+                </div>
+                <div class="format-hint">[ {user, path} ]</div>
+            </div>
+
+            <div class="slot-wrapper">
+                <div class="slot" id="slot-group">
+                    <i class="ti ti-users slot-icon" aria-hidden="true"></i>
+                    <div class="slot-info">
+                        <div class="slot-label">Grupos</div>
+                        <div class="slot-sub" id="sub-group">CSV, JSON o XML</div>
+                    </div>
+                    <input type="file" id="input-group" accept=".csv,.json,.xml" aria-label="Subir archivo de grupos">
+                </div>
+                <div class="format-hint">[ "grupo1", "grupo2" ]</div>
+            </div>
+
+            <div class="slot-wrapper">
+                <div class="slot" id="slot-dir">
+                    <i class="ti ti-folder slot-icon" aria-hidden="true"></i>
+                    <div class="slot-info">
+                        <div class="slot-label">Directorios</div>
+                        <div class="slot-sub" id="sub-dir">CSV, JSON o XML</div>
+                    </div>
+                    <input type="file" id="input-dir" accept=".csv,.json,.xml" aria-label="Subir archivo de directorios">
+                </div>
+                <div class="format-hint">[ "ruta/dir1", "ruta/dir2" ]</div>
+            </div>
+
+            <div class="slot-wrapper">
+                <div class="slot" id="slot-permission">
+                    <i class="ti ti-lock slot-icon" aria-hidden="true"></i>
+                    <div class="slot-info">
+                        <div class="slot-label">Permisos</div>
+                        <div class="slot-sub" id="sub-permission">CSV, JSON o XML</div>
+                    </div>
+                    <input type="file" id="input-permission" accept=".csv,.json,.xml" aria-label="Subir archivo de permisos">
+                </div>
+                <div class="format-hint">[ {dir, permiso} ]</div>
+            </div>
+
+            <div class="slot-wrapper">
+                <div class="slot" id="slot-service">
+                    <i class="ti ti-server slot-icon" aria-hidden="true"></i>
+                    <div class="slot-info">
+                        <div class="slot-label">Servicios</div>
+                        <div class="slot-sub" id="sub-service">CSV, JSON o XML</div>
+                    </div>
+                    <input type="file" id="input-service" accept=".csv,.json,.xml" aria-label="Subir archivo de servicios">
+                </div>
+                <div class="format-hint">[ "apache2", "ssh" ]</div>
+            </div>
+        </div>
+
+        <div class="preview-panel">
+            <div class="panel-header">
+                <div class="panel-title">vista previa</div>
+                <span class="count-badge" id="total-count">0 elementos</span>
+            </div>
+            <div id="preview-content">
+                <div class="empty-state">
+                    <i class="ti ti-file-search" aria-hidden="true"></i>
+                    Sube un archivo para ver la vista previa
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="action-log" class="action-log" aria-live="polite"></div>
+
+    <div class="divider"></div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <button class="btn btn-danger" id="reset-btn">
+                <i class="ti ti-trash" aria-hidden="true"></i> Reset entorno
+            </button>
+        </div>
+        <div class="footer-right">
+            <button class="btn" id="clear-btn">
+                <i class="ti ti-x" aria-hidden="true"></i> Limpiar
+            </button>
+            <button class="btn btn-primary" id="apply-btn" disabled>
+                <i class="ti ti-player-play" aria-hidden="true"></i> Aplicar
+            </button>
+        </div>
+    </footer>
+
+</div>
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('input[type=file]').forEach(i => { i.value = ''; });
+  });
+</script>
+<script type="module" src="js/panel.js"></script>
+</body>
+</html>
