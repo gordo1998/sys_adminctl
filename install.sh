@@ -20,7 +20,7 @@ check_root(){
 install_dependencies(){
     log_info "Instalando dependencias del sistema..."
     apt update -qq
-    apt install -y apache2 python3-venv python3-pip gunicorn jq &>/dev/null
+    apt install -y apache2 python3-venv python3-pip jq &>/dev/null
     a2enmod proxy proxy_http &>/dev/null
     log_ok "Dependencias instaladas."
 }
@@ -40,7 +40,7 @@ setup_python(){
     log_info "Configurando entorno Python..."
     cd "$INSTALL_DIR/api"
     python3 -m venv venv
-    venv/bin/pip install -q -r requirements.txt
+    venv/bin/pip install -q gunicorn -r requirements.txt
     log_ok "Entorno Python configurado."
 }
 
