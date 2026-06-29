@@ -102,7 +102,7 @@ fix_permissions(){
 
 verify(){
     log_info "Verificando instalación..."
-    sleep 2
+    sleep 5
     local response
     response=$(curl -s http://localhost/api/status || true)
     if echo "$response" | grep -q '"success": true'; then
