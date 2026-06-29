@@ -1,11 +1,10 @@
 #!/bin/bash
 
-DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$DIR_SOURCE/../../lib" && pwd)"
+_DD_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/dir/validation.sh"
-source "$LIB_DIR/dir/delete.sh"
+source "$_DD_LIB/mode/lib_mode_det_mode.sh"
+source "$_DD_LIB/dir/validation.sh"
+source "$_DD_LIB/dir/delete.sh"
 
 dd_delete_dir(){
     local dir=""

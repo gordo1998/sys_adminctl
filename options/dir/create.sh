@@ -1,11 +1,10 @@
 #!/bin/bash
 
-DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$DIR_SOURCE/../../lib" && pwd)"
+_DC_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/dir/validation.sh"
-source "$LIB_DIR/dir/execution.sh"
+source "$_DC_LIB/mode/lib_mode_det_mode.sh"
+source "$_DC_LIB/dir/validation.sh"
+source "$_DC_LIB/dir/execution.sh"
 source "$LIB_DIR/log/log.sh"
 
 dc_create_dir(){

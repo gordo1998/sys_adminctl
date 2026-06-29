@@ -1,10 +1,9 @@
 #!/bin/bash
 
-SCTL_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SCTL_DIR_SOURCE/../../lib" && pwd)"
+_SCTL_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/service/validation.sh"
-source "$LIB_DIR/service/execution.sh"
+source "$_SCTL_LIB/service/validation.sh"
+source "$_SCTL_LIB/service/execution.sh"
 
 sc_control_service(){
     local action="$1"

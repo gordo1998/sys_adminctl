@@ -1,17 +1,16 @@
 #!/bin/bash
 
-GI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$GI_DIR_SOURCE/../../lib" && pwd)"
+_GI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/group/validation.sh"
-source "$LIB_DIR/group/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_GI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_GI_LIB/group/validation.sh"
+source "$_GI_LIB/group/execution.sh"
+source "$_GI_LIB/log/log.sh"
 
 gi_import_groups(){
     local entity="$1"
     shift
-    local gi_parsed=$(lpd_det_ext "$entity" "$@")
+    local gi_parsed=$(lpd_det_ext "$entity" "import" "$@")
 
     while read -r group; do
         validate_group_format "$group" || return 1

@@ -1,17 +1,16 @@
 #!/bin/bash
 
-GDI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$GDI_DIR_SOURCE/../../lib" && pwd)"
+_GDI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/group/validation.sh"
-source "$LIB_DIR/group/delete.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_GDI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_GDI_LIB/group/validation.sh"
+source "$_GDI_LIB/group/delete.sh"
+source "$_GDI_LIB/log/log.sh"
 
 gdi_delete_groups(){
     local entity="$1"
     shift
-    local gdi_parsed=$(lpd_det_ext "$entity" "$@")
+    local gdi_parsed=$(lpd_det_ext "$entity" "dimport" "$@")
 
     while read -r group; do
         validate_group_format "$group" || return 1

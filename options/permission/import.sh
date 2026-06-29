@@ -1,13 +1,12 @@
 #!/bin/bash
 
-PI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$PI_DIR_SOURCE/../../lib" && pwd)"
+_PI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/permission/validation.sh"
-source "$LIB_DIR/permission/execution.sh"
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_PI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_PI_LIB/permission/validation.sh"
+source "$_PI_LIB/permission/execution.sh"
+source "$_PI_LIB/mode/lib_mode_det_mode.sh"
+source "$_PI_LIB/log/log.sh"
 
 pi_import_permissions(){
     local tipo="$1"

@@ -1,13 +1,12 @@
 #!/bin/bash
 
-PDI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$PDI_DIR_SOURCE/../../lib" && pwd)"
+_PDI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/permission/validation.sh"
-source "$LIB_DIR/permission/delete.sh"
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_PDI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_PDI_LIB/permission/validation.sh"
+source "$_PDI_LIB/permission/delete.sh"
+source "$_PDI_LIB/mode/lib_mode_det_mode.sh"
+source "$_PDI_LIB/log/log.sh"
 
 pdi_delete_permissions(){
     local tipo="$1"

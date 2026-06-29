@@ -1,11 +1,10 @@
 #!/bin/bash
 
-SC_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SC_DIR_SOURCE/../../lib" && pwd)"
+_SC_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/service/validation.sh"
-source "$LIB_DIR/service/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_SC_LIB/service/validation.sh"
+source "$_SC_LIB/service/execution.sh"
+source "$_SC_LIB/log/log.sh"
 
 sc_install_service(){
     local service="$1"

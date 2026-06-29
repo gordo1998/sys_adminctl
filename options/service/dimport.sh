@@ -1,12 +1,11 @@
 #!/bin/bash
 
-SDI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$SDI_DIR_SOURCE/../../lib" && pwd)"
+_SDI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/service/validation.sh"
-source "$LIB_DIR/service/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_SDI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_SDI_LIB/service/validation.sh"
+source "$_SDI_LIB/service/execution.sh"
+source "$_SDI_LIB/log/log.sh"
 
 sdi_delete_services(){
     local file="$1"

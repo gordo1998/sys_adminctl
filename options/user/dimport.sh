@@ -1,18 +1,17 @@
 #!/bin/bash
 
-UDI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$UDI_DIR_SOURCE/../../lib" && pwd)"
+_UDI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/user/delete.sh"
-source "$LIB_DIR/user/validation.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_UDI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_UDI_LIB/user/delete.sh"
+source "$_UDI_LIB/user/validation.sh"
+source "$_UDI_LIB/log/log.sh"
 
 
 udi_delete_users(){
 	local entity="$1"
 	shift
-	local parsed=$(lpd_det_ext "$entity" "$@")
+	local parsed=$(lpd_det_ext "$entity" "dimport" "$@")
 	local statement=""
 	while read -r user;do
 		validate_user_format "$ud_user"

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-ROLLBACK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$ROLLBACK_DIR/.." && pwd)"
-LOG_FILE="$(cd "$ROLLBACK_DIR/../../logs" && pwd)/session.log"
+_RB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_RB_LIB="$(cd "$_RB_DIR/.." && pwd)"
+LOG_FILE="$(cd "$_RB_DIR/../../logs" && pwd)/session.log"
 
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/user/delete.sh"
-source "$LIB_DIR/dir/delete.sh"
-source "$LIB_DIR/group/delete.sh"
+source "$_RB_LIB/mode/lib_mode_det_mode.sh"
+source "$_RB_LIB/user/delete.sh"
+source "$_RB_LIB/dir/delete.sh"
+source "$_RB_LIB/group/delete.sh"
 source "$LIB_DIR/service/execution.sh"
 
 rb_rollback(){

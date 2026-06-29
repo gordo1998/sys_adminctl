@@ -1,13 +1,12 @@
 #!/bin/bash
 
-UI_DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$UI_DIR_SOURCE/../../lib" && pwd)"
+_UI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/parser/detect_extensions/detect_extensions.sh"
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/user/execution.sh"
-source "$LIB_DIR/user/validation.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_UI_LIB/parser/detect_extensions/detect_extensions.sh"
+source "$_UI_LIB/mode/lib_mode_det_mode.sh"
+source "$_UI_LIB/user/execution.sh"
+source "$_UI_LIB/user/validation.sh"
+source "$_UI_LIB/log/log.sh"
 
 #EN BASE A LA LISTA PARSEADA DE UI_PARSED EJECUTA LAS INSTRUCCIONES PARA LA CREACIÓN DE USUARIOS
 ui_import_users(){
@@ -15,7 +14,7 @@ ui_import_users(){
 	local entity="$1"
 	shift
 	#ESTA VARIABLE SE ENCARGA DE RECOGER LA LISTA PARSEADA.
-	local ui_parsed=$(lpd_det_ext "$entity" "$@")
+	local ui_parsed=$(lpd_det_ext "$entity" "import" "$@")
 	#ESTA DETECTA EL MODO DEL ENTORNO (LABORATORIO O NORMAL PARA CREAR EL PATH RAIZ)
 	local ui_dir=$(lm_det_mode)
 	local statement=""

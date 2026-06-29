@@ -1,12 +1,11 @@
 #!/bin/bash
 
-DIR_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIB_DIR="$(cd "$DIR_SOURCE/../../lib" && pwd)"
+_DI_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../lib" && pwd)"
 
-source "$LIB_DIR/mode/lib_mode_det_mode.sh"
-source "$LIB_DIR/dir/validation.sh"
-source "$LIB_DIR/dir/execution.sh"
-source "$LIB_DIR/log/log.sh"
+source "$_DI_LIB/mode/lib_mode_det_mode.sh"
+source "$_DI_LIB/dir/validation.sh"
+source "$_DI_LIB/dir/execution.sh"
+source "$_DI_LIB/log/log.sh"
 
 di_import_dir(){
     local entity=""
@@ -16,7 +15,7 @@ di_import_dir(){
 
     entity="$1"
     shift
-    file_parsed=$(lpd_det_ext "$entity" "$@")
+    file_parsed=$(lpd_det_ext "$entity" "import" "$@")
     root_path=$(lm_det_mode)
     statement=""
 
