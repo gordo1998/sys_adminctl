@@ -5,7 +5,7 @@ group_exec_comm(){
 
     echo "Creando grupo $group..."
 
-    if sudo groupadd "$group" &>/dev/null; then
+    if groupadd "$group" &>/dev/null; then
         echo "Grupo $group creado correctamente."
     else
         echo "El grupo $group no se ha podido crear."

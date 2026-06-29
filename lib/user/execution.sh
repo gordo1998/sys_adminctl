@@ -4,7 +4,7 @@ user_exec_comm(){
 
 	echo "Creando usuario $user..."
 
-    if sudo useradd -m -d "$dir_complete" "$user" &> /dev/null;then     
+    if useradd -m -d "$dir_complete" "$user" &> /dev/null;then     
         echo "usuario $user creado correctamente."
     else
         echo "El usuario $user no se ha podido crear"

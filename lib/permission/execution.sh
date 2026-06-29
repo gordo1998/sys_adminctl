@@ -6,7 +6,7 @@ acl_execution(){
     dir="$1"
     permiso="$2"
 
-    sudo setfacl -m "$permiso" "$dir" || return 1
+    setfacl -m "$permiso" "$dir" || return 1
     
     return 0
 }
@@ -17,7 +17,7 @@ basic_execution(){
     dir="$1"
     permiso="$2"
 
-    sudo chmod "$permiso" "$dir" || return 1
+    chmod "$permiso" "$dir" || return 1
 
     return 0
 }
@@ -28,7 +28,7 @@ owner_execution(){
     dir="$1"
     user="$2"
 
-    sudo chown "$dir" "$user" || return 1
+    chown "$dir" "$user" || return 1
 
     return 0
 }
@@ -39,7 +39,7 @@ group_execution(){
     dir="$1"
     group="$2"
 
-    sudo chown ":$group" "$dir" || return 1
+    chown ":$group" "$dir" || return 1
 
     return 0
 }

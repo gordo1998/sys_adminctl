@@ -52,7 +52,7 @@ Description=adminctl Flask API
 After=network.target
 
 [Service]
-User=www-data
+User=root
 WorkingDirectory=$INSTALL_DIR
 ExecStart=$INSTALL_DIR/api/venv/bin/gunicorn -w 4 -b 127.0.0.1:5000 "api.app:create_app()"
 Restart=always

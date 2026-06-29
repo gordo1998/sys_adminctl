@@ -22,21 +22,21 @@ rb_rollback(){
         case "$tipo" in
             user)
                 echo "Eliminando usuario $arg1..."
-                sudo userdel -r "$arg1" &>/dev/null && echo "Usuario $arg1 eliminado." || echo "Error al eliminar usuario $arg1." >&2
+                userdel -r "$arg1" &>/dev/null && echo "Usuario $arg1 eliminado." || echo "Error al eliminar usuario $arg1." >&2
                 ;;
             dir)
                 echo "Eliminando directorio $arg1..."
-                sudo rm -rf "$root_dir/$arg1" && echo "Directorio $arg1 eliminado." || echo "Error al eliminar directorio $arg1." >&2
+                rm -rf "$root_dir/$arg1" && echo "Directorio $arg1 eliminado." || echo "Error al eliminar directorio $arg1." >&2
                 ;;
             group)
                 echo "Eliminando grupo $arg1..."
-                sudo groupdel "$arg1" &>/dev/null && echo "Grupo $arg1 eliminado." || echo "Error al eliminar grupo $arg1." >&2
+                groupdel "$arg1" &>/dev/null && echo "Grupo $arg1 eliminado." || echo "Error al eliminar grupo $arg1." >&2
                 ;;
             service)
                 echo "Desinstalando servicio $arg1..."
-                sudo systemctl stop "$arg1" &>/dev/null
-                sudo systemctl disable "$arg1" &>/dev/null
-                sudo apt remove -y "$arg1" &>/dev/null && echo "Servicio $arg1 desinstalado." || echo "Error al desinstalar $arg1." >&2
+                systemctl stop "$arg1" &>/dev/null
+                systemctl disable "$arg1" &>/dev/null
+                apt remove -y "$arg1" &>/dev/null && echo "Servicio $arg1 desinstalado." || echo "Error al desinstalar $arg1." >&2
                 ;;
             permission)
                 local complete_dir="$root_dir/$arg1"
@@ -45,7 +45,7 @@ rb_rollback(){
                         local entrada
                         IFS=':' read -r tipo_acl nombre _ <<< "$arg2"
                         entrada="$tipo_acl:$nombre"
-                        sudo setfacl -x "$entrada" "$complete_dir" &>/dev/null && echo "ACL $entrada eliminada de $arg1." || echo "Error al eliminar ACL de $arg1." >&2
+                        setfacl -x "$entrada" "$complete_dir" &>/dev/null && echo "ACL $entrada eliminada de $arg1." || echo "Error al eliminar ACL de $arg1." >&2
                         ;;
                     basic|owner|group)
                         echo "Permiso $accion en $arg1 registrado — reversión manual necesaria."

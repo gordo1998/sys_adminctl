@@ -6,7 +6,7 @@ acl_delete(){
     dir="$1"
     permiso="$2"
 
-    sudo setfacl -x "$permiso" "$dir" || return 1
+    setfacl -x "$permiso" "$dir" || return 1
 
     return 0
 }
@@ -17,7 +17,7 @@ basic_delete(){
     dir="$1"
     permiso="$2"
 
-    sudo chmod "$permiso" "$dir" || return 1
+    chmod "$permiso" "$dir" || return 1
 
     return 0
 }
