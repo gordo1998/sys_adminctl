@@ -12,7 +12,9 @@ log_ok()    { echo "[OK]    $1"; }
 log_error() { echo "[ERROR] $1" >&2; exit 1; }
 
 check_root(){
-    [[ "$EUID" -ne 0 ]] && log_error "Ejecuta el instalador como root: sudo bash install.sh"
+    if [[ "$EUID" -ne 0 ]]; then
+        log_error "Ejecuta el instalador como root: sudo bash install.sh"
+    fi
 }
 
 install_dependencies(){
