@@ -18,6 +18,10 @@ check_root(){
 }
 
 install_dependencies(){
+    log_info "Esperando a que apt esté disponible..."
+    while fuser /var/lib/dpkg/lock-frontend &>/dev/null 2>&1; do
+        sleep 2
+    done
     log_info "Instalando dependencias del sistema..."
     apt update -qq
     DEBIAN_FRONTEND=noninteractive apt install -y \
