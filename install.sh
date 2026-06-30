@@ -18,7 +18,9 @@ check_root(){
 }
 
 install_dependencies(){
-    log_info "Esperando a que apt esté disponible..."
+    log_info "Desactivando actualizaciones automáticas..."
+    systemctl stop unattended-upgrades &>/dev/null || true
+    systemctl disable unattended-upgrades &>/dev/null || true
     while fuser /var/lib/dpkg/lock-frontend &>/dev/null 2>&1; do
         sleep 2
     done
