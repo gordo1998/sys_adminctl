@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../logs" && pwd)"
-LOG_FILE="$LOG_DIR/session.log"
+_LOG_SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LOG_FILE="$(cd "$_LOG_SELF/../../logs" && pwd)/session.log"
 
 log_action(){
     echo "$1" >> "$LOG_FILE"
