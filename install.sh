@@ -23,7 +23,7 @@ install_dependencies(){
     DEBIAN_FRONTEND=noninteractive apt install -y \
         -o Dpkg::Options::="--force-confdef" \
         -o Dpkg::Options::="--force-confold" \
-        apache2 python3-venv python3-pip jq acl &>/dev/null
+        apache2 python3-venv python3-pip jq acl
     a2enmod proxy proxy_http &>/dev/null
     log_ok "Dependencias instaladas."
 }
