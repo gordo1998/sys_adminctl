@@ -20,7 +20,7 @@ check_root(){
 install_dependencies(){
     log_info "Instalando dependencias del sistema..."
     apt update -qq
-    apt install -y apache2 python3-venv python3-pip jq &>/dev/null
+    apt install -y apache2 python3-venv python3-pip jq acl &>/dev/null
     a2enmod proxy proxy_http &>/dev/null
     log_ok "Dependencias instaladas."
 }
