@@ -19,11 +19,9 @@ check_root(){
 
 install_dependencies(){
     log_info "Desactivando actualizaciones automáticas..."
-    systemctl stop unattended-upgrades &>/dev/null || true
-    systemctl disable unattended-upgrades &>/dev/null || true
-    while fuser /var/lib/dpkg/lock-frontend &>/dev/null 2>&1; do
-        sleep 2
-    done
+    systemctl disable --now unattended-upgrades &>/dev/null || true
+    killall -q unattended-upgrades 2>/dev/null || true
+    rm -f /var/lib/dpkg/lock-frontend /var/lib/dpkg/lock /var/cache/apt/archives/lock
     log_info "Instalando dependencias del sistema..."
     apt update -qq
     DEBIAN_FRONTEND=noninteractive apt install -y \
