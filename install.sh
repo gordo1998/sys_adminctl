@@ -20,9 +20,19 @@ check_root(){
 install_dependencies(){
     log_info "Instalando dependencias del sistema..."
     apt update -qq
-    apt install -y apache2 python3-venv python3-pip jq acl &>/dev/null
+    DEBIAN_FRONTEND=noninteractive apt install -y \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confold" \
+        apache2 python3-venv python3-pip jq acl &>/dev/null
     a2enmod proxy proxy_http &>/dev/null
     log_ok "Dependencias instaladas."
+}
+
+stop_service(){
+    if systemctl is-active --quiet adminctl-api 2>/dev/null; then
+        log_info "Deteniendo servicio anterior..."
+        systemctl stop adminctl-api &>/dev/null || true
+    fi
 }
 
 copy_project(){
@@ -125,6 +135,7 @@ print_done(){
 }
 
 check_root
+stop_service
 install_dependencies
 copy_project
 setup_python
